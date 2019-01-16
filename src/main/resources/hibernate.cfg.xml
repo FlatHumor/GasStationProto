@@ -28,5 +28,6 @@
         <property name="hibernate.hbm2ddl.auto">validate</property>
 
         <mapping class="by.flathumor.model.User"/>
+        <mapping class="by.flathumor.model.Transaction"/>
     </session-factory>
 </hibernate-configuration>

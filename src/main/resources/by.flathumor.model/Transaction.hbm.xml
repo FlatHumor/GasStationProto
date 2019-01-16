@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        '-//Hibernate/Hibernate Mapping DTD 3.0//EN' 'http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd'>
+
+<hibernate-mapping package="by.flathumor.model">
+
+    <class name="Transaction" table="transaction">
+        <id name="id" column="id">
+            <generator class="increment" />
+        </id>
+        <many-to-one name="payer" class="by.flathumor.model.User" column="payer_id"/>
+        <many-to-one name="recipient" class="by.flathumor.model.User" column="recipient_id"/>
+        <property name="amount" type="java.lang.Double" column="amount"/>
+        <property name="description" type="java.lang.String" column="description"/>
+        <property name="timestamp" type="java.lang.Long" column="stamp"/>
+    </class>
+
+</hibernate-mapping>
