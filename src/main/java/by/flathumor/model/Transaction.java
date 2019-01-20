@@ -1,12 +1,34 @@
 package by.flathumor.model;
 
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "transaction")
+@NamedQueries(
+        @NamedQuery(name = "Transaction.findAll", query = "select t from Transaction t"))
 public class Transaction
 {
+    @Id
+    @Column(name="id")
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
+
+    @JoinColumn(name="payer_id")
+    @ManyToOne(targetEntity = User.class)
     private User payer;
+
+    @JoinColumn(name="recipient_id")
+    @ManyToOne(targetEntity = User.class)
     private User recipient;
+
+    @Column(name = "amount")
     private Double amount;
+
+    @Column(name = "description")
     private String description;
+
+    @Column(name = "stamp")
     private Long timestamp;
 
     public Long getId() {

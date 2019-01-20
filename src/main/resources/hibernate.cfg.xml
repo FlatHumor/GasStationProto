@@ -25,7 +25,7 @@
         <property name="show_sql">true</property>
 
         <!-- Drop and re-create the database schema on startup -->
-        <property name="hibernate.hbm2ddl.auto">validate</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
 
         <mapping class="by.flathumor.model.User"/>
         <mapping class="by.flathumor.model.Transaction"/>

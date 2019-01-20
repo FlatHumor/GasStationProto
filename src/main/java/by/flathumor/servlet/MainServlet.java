@@ -1,7 +1,10 @@
 package by.flathumor.servlet;
 
+import by.flathumor.model.User;
 import by.flathumor.repository.DatabaseRepository;
+import by.flathumor.repository.PersManager;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -15,8 +18,10 @@ import java.io.PrintWriter;
 @WebServlet(name = "MainServlet", urlPatterns = { "/main" })
 public class MainServlet extends HttpServlet
 {
-    @Inject
     private DatabaseRepository repository;
+
+//    @Inject
+//    private PersManager persManager;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
@@ -26,6 +31,14 @@ public class MainServlet extends HttpServlet
         System.out.println("username: " + username + "| password: " + password);
         PrintWriter out = response.getWriter();
         out.println("username: " + username + "| password: " + password);
+        repository = new DatabaseRepository();
+        User user = new User(username, "Markel", "aaaa", password);
+//        persManager.persist(user);
+        Session session = repository.getSession();
+        Transaction transaction = session.beginTransaction();
+        session.save(user);
+        transaction.commit();
+        session.close();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
