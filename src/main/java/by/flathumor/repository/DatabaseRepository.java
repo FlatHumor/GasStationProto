@@ -6,11 +6,14 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+import javax.inject.Singleton;
+
+@Singleton
 public class DatabaseRepository
 {
     private SessionFactory sessionFactory;
 
-    public void init()
+    private void init()
     {
         final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .configure("hibernate.hbm.xml").build();
