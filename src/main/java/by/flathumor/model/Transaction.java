@@ -2,6 +2,7 @@ package by.flathumor.model;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "transaction")
@@ -30,6 +31,9 @@ public class Transaction
 
     @Column(name = "stamp")
     private Long timestamp;
+
+    @ManyToMany(mappedBy = "transactions")
+    private List<User> users;
 
     public Long getId() {
         return id;

@@ -2,6 +2,7 @@ package by.flathumor.model;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -25,6 +26,13 @@ public class User
 
     @Column(name = "password")
     private String password;
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_transaction_rel",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "transaction_id"))
+    private List<Transaction> transactions;
 
     public User() { }
 
