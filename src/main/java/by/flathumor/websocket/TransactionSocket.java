@@ -2,7 +2,6 @@ package by.flathumor.websocket;
 
 import by.flathumor.model.Transaction;
 import by.flathumor.model.User;
-import by.flathumor.repository.DatabaseRepository;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -27,10 +26,10 @@ public class TransactionSocket
     private Session wSession;
     private User user;
     private org.hibernate.Session hSession;
+    private final static Object lock = new Object();
 
     public TransactionSocket() {
-        DatabaseRepository repository = new DatabaseRepository();
-        hSession = repository.getSession();
+
     }
 
     @OnMessage
@@ -59,7 +58,7 @@ public class TransactionSocket
         for (TransactionSocket peer : peers)
         {
             try {
-                synchronized (peer) {
+                synchronized (lock) {
                     peer.wSession.getBasicRemote().sendText(message);
                 }
             }
