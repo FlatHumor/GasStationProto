@@ -1,7 +1,6 @@
 package by.flathumor.websocket;
 
-import by.flathumor.model.Transaction;
-import by.flathumor.model.User;
+import by.flathumor.enity.User;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 

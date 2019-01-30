@@ -1,4 +1,4 @@
-package by.flathumor.model;
+package by.flathumor.enity;
 
 import javax.persistence.*;
 

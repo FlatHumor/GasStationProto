@@ -1,19 +1,20 @@
 package by.flathumor.dao;
 
-import by.flathumor.model.Transaction;
+import by.flathumor.enity.Transaction;
 import by.flathumor.repository.HibernateSessionFactoryUtil;
 import org.hibernate.Session;
 
-public class TransactionDao implements Dao<Transaction>
+public class TransactionDao implements ITransactionDao<Transaction, Long>
 {
-    public Transaction findById(long id) {
+    public Transaction findById(Long id) {
         return HibernateSessionFactoryUtil
                 .getSessionFactory()
                 .openSession()
                 .get(Transaction.class, id);
     }
 
-    public void save(Transaction transaction) {
+    public void save(Transaction transaction)
+    {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         org.hibernate.Transaction hTransaction = session.beginTransaction();
         session.save(transaction);
@@ -21,7 +22,8 @@ public class TransactionDao implements Dao<Transaction>
         session.close();
     }
 
-    public void update(Transaction transaction) {
+    public void update(Transaction transaction)
+    {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         org.hibernate.Transaction hTransaction = session.beginTransaction();
         session.update(transaction);
@@ -29,7 +31,8 @@ public class TransactionDao implements Dao<Transaction>
         session.close();
     }
 
-    public void delete(Transaction transaction) {
+    public void delete(Transaction transaction)
+    {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         org.hibernate.Transaction hTransaction = session.beginTransaction();
         session.delete(transaction);
