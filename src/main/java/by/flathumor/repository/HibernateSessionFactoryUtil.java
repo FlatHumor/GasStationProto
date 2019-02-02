@@ -1,7 +1,7 @@
 package by.flathumor.repository;
 
-import by.flathumor.enity.Transaction;
-import by.flathumor.enity.User;
+import by.flathumor.entity.Transaction;
+import by.flathumor.entity.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;

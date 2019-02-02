@@ -1,33 +1,34 @@
 package by.flathumor.dao;
 
-import by.flathumor.entity.UserSession;
+import by.flathumor.entity.Role;
 import by.flathumor.repository.EntityManagerUtil;
+
 import javax.persistence.EntityManager;
 import java.util.function.Consumer;
 
-public class UserSessionDao extends AUserSession<UserSession, EntityManager>
+public class RoleDao extends ARole<Role, EntityManager>
 {
-    public UserSessionDao() {
+    public RoleDao() {
         this.manager = EntityManagerUtil.getEntityManager();
     }
 
     @Override
-    public UserSession findById(Long id) {
-        return manager.find(UserSession.class, id);
+    public Role findById(Long id) {
+        return manager.find(Role.class, id);
     }
 
     @Override
-    public void save(UserSession userSession) {
+    public void save(Role role) {
         executeTransaction(manager::persist);
     }
 
     @Override
-    public void update(UserSession userSession) {
-        executeTransaction(manager::persist);
+    public void update(Role role) {
+        executeTransaction(manager::merge);
     }
 
     @Override
-    public void delete(UserSession userSession) {
+    public void delete(Role role) {
         executeTransaction(manager::remove);
     }
 

@@ -1,42 +1,48 @@
 package by.flathumor.dao;
 
-import by.flathumor.enity.Transaction;
-import by.flathumor.repository.HibernateSessionFactoryUtil;
-import org.hibernate.Session;
+import by.flathumor.entity.Transaction;
+import by.flathumor.repository.EntityManagerUtil;
 
-public class TransactionDao implements ITransactionDao<Transaction, Long>
+import javax.persistence.EntityManager;
+import java.util.function.Consumer;
+
+public class TransactionDao extends ATransaction<Transaction, EntityManager>
 {
+    public TransactionDao() {
+        this.manager = EntityManagerUtil.getEntityManager();
+    }
+
+    @Override
     public Transaction findById(Long id) {
-        return HibernateSessionFactoryUtil
-                .getSessionFactory()
-                .openSession()
-                .get(Transaction.class, id);
+        return manager.find(Transaction.class, id);
     }
 
-    public void save(Transaction transaction)
-    {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        org.hibernate.Transaction hTransaction = session.beginTransaction();
-        session.save(transaction);
-        hTransaction.commit();
-        session.close();
+    @Override
+    public void save(Transaction transaction) {
+        executeTransaction(manager::persist);
     }
 
-    public void update(Transaction transaction)
-    {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        org.hibernate.Transaction hTransaction = session.beginTransaction();
-        session.update(transaction);
-        hTransaction.commit();
-        session.close();
+    @Override
+    public void update(Transaction transaction) {
+        executeTransaction(manager::merge);
     }
 
-    public void delete(Transaction transaction)
+    @Override
+    public void delete(Transaction transaction) {
+        executeTransaction(manager::remove);
+    }
+
+    @Override
+    public void executeTransaction(Consumer<EntityManager> action)
     {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        org.hibernate.Transaction hTransaction = session.beginTransaction();
-        session.delete(transaction);
-        hTransaction.commit();
-        session.close();
+        try {
+            manager.getTransaction().begin();
+            action.accept(manager);
+            manager.getTransaction().commit();
+        }
+        catch (Exception e) {
+            manager.getTransaction().rollback();
+            throw e;
+        }
     }
 }

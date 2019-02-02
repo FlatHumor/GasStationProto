@@ -1,4 +1,4 @@
-package by.flathumor.enity;
+package by.flathumor.entity;
 
 
 import javax.persistence.*;
@@ -6,8 +6,10 @@ import java.util.List;
 
 @Entity
 @Table(name = "user")
-@NamedQueries(
-        @NamedQuery(name = "User.findAll", query = "select u from User u"))
+@NamedQueries({
+        @NamedQuery(name = "User.findAll", query = "select u from User u"),
+        @NamedQuery(name = "User.findByUsername", query = "select u from User u where u.username = :username")
+})
 public class User
 {
     @Id

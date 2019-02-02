@@ -1,33 +1,34 @@
 package by.flathumor.dao;
 
-import by.flathumor.entity.UserSession;
+import by.flathumor.entity.Permission;
 import by.flathumor.repository.EntityManagerUtil;
+
 import javax.persistence.EntityManager;
 import java.util.function.Consumer;
 
-public class UserSessionDao extends AUserSession<UserSession, EntityManager>
+public class PermissionDao extends APermission<Permission, EntityManager>
 {
-    public UserSessionDao() {
+    public PermissionDao() {
         this.manager = EntityManagerUtil.getEntityManager();
     }
 
     @Override
-    public UserSession findById(Long id) {
-        return manager.find(UserSession.class, id);
+    public Permission findById(Long id) {
+        return manager.find(Permission.class, id);
     }
 
     @Override
-    public void save(UserSession userSession) {
+    public void save(Permission permission) {
         executeTransaction(manager::persist);
     }
 
     @Override
-    public void update(UserSession userSession) {
-        executeTransaction(manager::persist);
+    public void update(Permission permission) {
+        executeTransaction(manager::merge);
     }
 
     @Override
-    public void delete(UserSession userSession) {
+    public void delete(Permission permission) {
         executeTransaction(manager::remove);
     }
 
