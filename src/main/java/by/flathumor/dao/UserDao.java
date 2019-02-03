@@ -22,14 +22,15 @@ public class UserDao extends AUser<User, EntityManager>
     public User findByUsername(String username)
     {
         EntityManager manager = EntityManagerUtil.getEntityManager();
-        Query query = manager.createNamedQuery("User.findByUsername", User.class);
+//        Query query = manager.createNamedQuery("User.findByUsername", User.class);
+        Query query = manager.createQuery("select u from User u where u.username = :username");
         query.setParameter("username", username);
         return (User)query.getSingleResult();
     }
 
     @Override
     public void save(User user) {
-        executeTransaction(manager::persist);
+        executeTransaction(manager->manager.persist(user));
     }
 
     @Override

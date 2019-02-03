@@ -9,10 +9,11 @@
 <html>
 <head>
     <link type="text/css" href="static/styles/bootstrap.min.css" rel="stylesheet"/>
+    <link type="text/css" href="static/styles/custom_auth.css" rel="stylesheet"/>
 </head>
 <body>
-<div style="width: 50%">
-    <form method="post" action="main">
+<div class="auth-form">
+    <form method="post" action="auth">
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp"

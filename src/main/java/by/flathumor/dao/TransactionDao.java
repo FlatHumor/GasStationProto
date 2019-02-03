@@ -19,17 +19,17 @@ public class TransactionDao extends ATransaction<Transaction, EntityManager>
 
     @Override
     public void save(Transaction transaction) {
-        executeTransaction(manager::persist);
+        executeTransaction(manager->manager.persist(transaction));
     }
 
     @Override
     public void update(Transaction transaction) {
-        executeTransaction(manager::merge);
+        executeTransaction(manager->manager.merge(transaction));
     }
 
     @Override
     public void delete(Transaction transaction) {
-        executeTransaction(manager::remove);
+        executeTransaction(manager->manager.remove(transaction));
     }
 
     @Override

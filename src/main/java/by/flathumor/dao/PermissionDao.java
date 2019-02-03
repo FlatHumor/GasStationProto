@@ -19,17 +19,17 @@ public class PermissionDao extends APermission<Permission, EntityManager>
 
     @Override
     public void save(Permission permission) {
-        executeTransaction(manager::persist);
+        executeTransaction(manager->manager.persist(permission));
     }
 
     @Override
     public void update(Permission permission) {
-        executeTransaction(manager::merge);
+        executeTransaction(manager->manager.merge(permission));
     }
 
     @Override
     public void delete(Permission permission) {
-        executeTransaction(manager::remove);
+        executeTransaction(manager->manager.remove(permission));
     }
 
     @Override

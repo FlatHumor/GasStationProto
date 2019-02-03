@@ -19,17 +19,17 @@ public class RoleDao extends ARole<Role, EntityManager>
 
     @Override
     public void save(Role role) {
-        executeTransaction(manager::persist);
+        executeTransaction(manager->manager.persist(role));
     }
 
     @Override
     public void update(Role role) {
-        executeTransaction(manager::merge);
+        executeTransaction(manager->manager.merge(role));
     }
 
     @Override
     public void delete(Role role) {
-        executeTransaction(manager::remove);
+        executeTransaction(manager->manager.remove(role));
     }
 
     @Override

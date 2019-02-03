@@ -2,14 +2,13 @@ package by.flathumor.entity;
 
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "user")
-@NamedQueries({
-        @NamedQuery(name = "User.findAll", query = "select u from User u"),
-        @NamedQuery(name = "User.findByUsername", query = "select u from User u where u.username = :username")
-})
+//@NamedQueries({
+//        @NamedQuery(name = "User.findAll", query = "select u from User u"),
+//        @NamedQuery(name = "User.findByUsername", query = "select u from User u where u.username = :username")})
 public class User
 {
     @Id
@@ -32,22 +31,20 @@ public class User
     @ManyToMany
     @JoinTable(
             name = "user_transaction_rel",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "transaction_id"))
-    private List<Transaction> transactions;
-
-    public User() { }
-
-    public User(String username, String realName, String identificator, String password)
-    {
-        this.username = username;
-        this.realName = realName;
-        this.identificator = identificator;
-        this.password = password;
-    }
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "transaction_id", referencedColumnName = "id"))
+    private Set<Transaction> transactions;
 
     public Long getId() {
         return id;
+    }
+
+    public Set<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(Set<Transaction> transactions) {
+        this.transactions = transactions;
     }
 
     public String getUsername() {
