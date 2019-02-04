@@ -2,6 +2,7 @@ package by.flathumor.entity;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.ArrayList;
 
 @Entity
 @Table(name = "role")
@@ -24,7 +25,17 @@ public class Role
             name = "role_permission_rel",
             joinColumns = @JoinColumn(name = "role_id"),
             inverseJoinColumns = @JoinColumn(name = "permission_id"))
-    List<Permission> permissions;
+    List<Permission> permissions = new ArrayList<>();
+    
+    public void addPermission(Permission permission) {
+        permissions.add(permission);
+        permission.getRoles().add(this);
+    }
+    
+    public void removePermission(Permission permission) {
+        permissions.remove(permission);
+        permission.getRoles().remove(this);
+    }
 
     public Long getId() {
         return id;

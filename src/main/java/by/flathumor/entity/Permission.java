@@ -2,6 +2,7 @@ package by.flathumor.entity;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.ArrayList;
 
 @Entity
 @Table(name = "permission")
@@ -19,7 +20,7 @@ public class Permission
     private String url;
 
     @ManyToMany(mappedBy = "permissions")
-    private List<Role> roles;
+    private List<Role> roles = new ArrayList<>();
 
     public Long getId() {
         return id;
