@@ -2,13 +2,14 @@ package by.flathumor.entity;
 
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
-//@NamedQueries({
-//        @NamedQuery(name = "User.findAll", query = "select u from User u"),
-//        @NamedQuery(name = "User.findByUsername", query = "select u from User u where u.username = :username")})
+@NamedQueries({
+        @NamedQuery(name = "User.findAll", query = "select u from User u"),
+        @NamedQuery(name = "User.findByUsername", query = "select u from User u where u.username = :username")})
 public class User
 {
     @Id
@@ -31,19 +32,29 @@ public class User
     @ManyToMany
     @JoinTable(
             name = "user_transaction_rel",
-            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "transaction_id", referencedColumnName = "id"))
-    private Set<Transaction> transactions;
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "transaction_id"))
+    private List<Transaction> transactions = new ArrayList<>();
 
     public Long getId() {
         return id;
     }
 
-    public Set<Transaction> getTransactions() {
+    public void addTransaction(Transaction transaction) {
+        transactions.add(transaction);
+        transaction.getUsers().add(this);
+    }
+
+    public void removeTransaction(Transaction transaction) {
+        transactions.remove(transaction);
+        transaction.getUsers().remove(this);
+    }
+
+    public List<Transaction> getTransactions() {
         return transactions;
     }
 
-    public void setTransactions(Set<Transaction> transactions) {
+    public void setTransactions(List<Transaction> transactions) {
         this.transactions = transactions;
     }
 

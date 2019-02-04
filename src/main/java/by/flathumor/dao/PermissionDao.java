@@ -1,17 +1,14 @@
 package by.flathumor.dao;
 
 import by.flathumor.entity.Permission;
-import by.flathumor.repository.EntityManagerUtil;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import java.util.function.Consumer;
 
-public class PermissionDao extends APermission<Permission, EntityManager>
+@Stateless
+public class PermissionDao extends APermission<Permission>
 {
-    public PermissionDao() {
-        this.manager = EntityManagerUtil.getEntityManager();
-    }
-
     @Override
     public Permission findById(Long id) {
         return manager.find(Permission.class, id);

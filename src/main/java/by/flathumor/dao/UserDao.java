@@ -1,18 +1,13 @@
 package by.flathumor.dao;
 
 import by.flathumor.entity.User;
-import by.flathumor.repository.EntityManagerUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.function.Consumer;
 
-public class UserDao extends AUser<User, EntityManager>
+public class UserDao extends AUser<User>
 {
-    public UserDao() {
-        this.manager = EntityManagerUtil.getEntityManager();
-    }
-
     @Override
     public User findById(Long id) {
         return manager.find(User.class, id);
@@ -21,9 +16,8 @@ public class UserDao extends AUser<User, EntityManager>
     @Override
     public User findByUsername(String username)
     {
-        EntityManager manager = EntityManagerUtil.getEntityManager();
-//        Query query = manager.createNamedQuery("User.findByUsername", User.class);
-        Query query = manager.createQuery("select u from User u where u.username = :username");
+        Query query = manager.createNamedQuery("User.findByUsername", User.class);
+//        Query query = manager.createQuery("select u from User u where u.username = :username");
         query.setParameter("username", username);
         return (User)query.getSingleResult();
     }
@@ -35,12 +29,12 @@ public class UserDao extends AUser<User, EntityManager>
 
     @Override
     public void update(User user) {
-        executeTransaction(manager::merge);
+        executeTransaction(manager->manager.merge(user));
     }
 
     @Override
     public void delete(User user) {
-        executeTransaction(manager::remove);
+        executeTransaction(manager->manager.remove(user));
     }
 
     @Override

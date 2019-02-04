@@ -54,6 +54,10 @@ public class AuthenticationServlet extends HttpServlet
         t.setDescription("if you want to be okay");
         t.setTimestamp(System.currentTimeMillis());
         transactionDao.save(t);
+        firstUser.addTransaction(t);
+        secondUser.addTransaction(t);
+        userDao.update(firstUser);
+        userDao.update(secondUser);
         out.println("<h1>SAVED</h1>");
     }
 

@@ -2,7 +2,8 @@ package by.flathumor.entity;
 
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "transaction")
@@ -15,11 +16,11 @@ public class Transaction
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
-    public Set<User> getUsers() {
+    public List<User> getUsers() {
         return users;
     }
 
-    public void setUsers(Set<User> users) {
+    public void setUsers(List<User> users) {
         this.users = users;
     }
 
@@ -41,7 +42,7 @@ public class Transaction
     private Long timestamp;
 
     @ManyToMany(mappedBy = "transactions")
-    private Set<User> users;
+    private List<User> users = new ArrayList<>();
 
     public Long getId() {
         return id;

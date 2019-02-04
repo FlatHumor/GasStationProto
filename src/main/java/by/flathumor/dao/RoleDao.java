@@ -3,15 +3,13 @@ package by.flathumor.dao;
 import by.flathumor.entity.Role;
 import by.flathumor.repository.EntityManagerUtil;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import java.util.function.Consumer;
 
-public class RoleDao extends ARole<Role, EntityManager>
+@Stateless
+public class RoleDao extends ARole<Role>
 {
-    public RoleDao() {
-        this.manager = EntityManagerUtil.getEntityManager();
-    }
-
     @Override
     public Role findById(Long id) {
         return manager.find(Role.class, id);
