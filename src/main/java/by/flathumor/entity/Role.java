@@ -6,19 +6,14 @@ import java.util.ArrayList;
 
 @Entity
 @Table(name = "role")
-public class Role
-{
+public class Role {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "name")
     private String name;
-
-    @JoinColumn(name = "user_id")
-    @ManyToOne(targetEntity = User.class)
-    private User userId;
 
     @ManyToMany
     @JoinTable(
@@ -26,15 +21,26 @@ public class Role
             joinColumns = @JoinColumn(name = "role_id"),
             inverseJoinColumns = @JoinColumn(name = "permission_id"))
     List<Permission> permissions = new ArrayList<>();
-    
+
+    @ManyToMany(mappedBy = "roles")
+    private List<User> users = new ArrayList<>();
+
     public void addPermission(Permission permission) {
         permissions.add(permission);
         permission.getRoles().add(this);
     }
-    
+
     public void removePermission(Permission permission) {
         permissions.remove(permission);
         permission.getRoles().remove(this);
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 
     public Long getId() {
@@ -59,13 +65,5 @@ public class Role
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public User getUserId() {
-        return userId;
-    }
-
-    public void setUserId(User userId) {
-        this.userId = userId;
     }
 }

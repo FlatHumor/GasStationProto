@@ -16,14 +16,6 @@ public class Transaction
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
-
     @JoinColumn(name="payer_id")
     @ManyToOne(targetEntity = User.class)
     private User payer;
@@ -43,6 +35,16 @@ public class Transaction
 
     @ManyToMany(mappedBy = "transactions")
     private List<User> users = new ArrayList<>();
+
+    public void addUser(User user) {
+        users.add(user);
+        user.getTransactions().add(this);
+    }
+
+    public void removeUser(User user) {
+        users.remove(user);
+        user.getTransactions().remove(this);
+    }
 
     public Long getId() {
         return id;
@@ -90,5 +92,13 @@ public class Transaction
 
     public void setTimestamp(Long timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 }
