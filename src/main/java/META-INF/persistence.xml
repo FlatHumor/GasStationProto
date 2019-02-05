@@ -21,6 +21,12 @@
             <property name="javax.persistence.jdbc.password" value="test"/>
             <property name="javax.persistence.schema-generation.database.action" value="create"/>
 
+            <!-- OTHER PROPERTIES -->
+
+            <!--<property name="javax.persistence.sql-load-script-source" value="META-INF/sql/load_script.sql"/>-->
+            <!--<property name="javax.persistence.schema-generation.create-source" value="metadata"/>-->
+            <!--<property name="javax.persistence.schema-generation.drop-source" value="metadata"/>-->
+
             <!-- SQLITE SECTION -->
             <!--<property name="dialect" value="org.hibernate.dialect.SQLiteDialect"/>-->
             <!--<property name="hibernate.connection.charSet" value="UTF-8"/>-->
