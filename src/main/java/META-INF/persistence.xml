@@ -20,6 +20,7 @@
             <property name="javax.persistence.jdbc.user" value="test"/>
             <property name="javax.persistence.jdbc.password" value="test"/>
             <property name="javax.persistence.schema-generation.database.action" value="create"/>
+            <property name="javax.persistence.sql-load-script-source" value="META-INF/sql/test_data.sql"/>
 
             <!-- OTHER PROPERTIES -->
 

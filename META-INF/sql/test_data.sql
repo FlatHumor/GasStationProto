@@ -1,0 +1,12 @@
+insert into gas_station.user (username, real_name, password) values ("MichaelVFoley@rhyta.com", "Michael V. Foley", "864-481-2631");
+insert into gas_station.user (username, real_name, password) values ("AlbertNHarp@rhyta.com", "Albert N. Harp", "720-247-8930");
+insert into gas_station.user (username, real_name, password) values ("EvaAWilliams@teleworm.us", "Eva A. Williams", "336-545-9250");
+insert into gas_station.user (username, real_name, password) values ("LindaJMaurice@jourrapide.com", "Linda J. Maurice", "724-532-7936");
+insert into gas_station.user (username, real_name, password) values ("NicholeHLarry@teleworm.us", "Nichole H. Larry", "650-898-7615");
+insert into gas_station.user (username, real_name, password) values ("DaleABuchanan@armyspy.com", "Dale A. Buchanan", "317-980-8405");
+insert into gas_station.user (username, real_name, password) values ("MandyRNorman@teleworm.us", "Mandy R. Norman", "573-439-5499");
+insert into gas_station.user (username, real_name, password) values ("GretchenJGriswold@jourrapide.com", "Gretchen J. Griswold", "570-232-2889");
+insert into gas_station.user (username, real_name, password) values ("MarySDavis@teleworm.us", "Mary S. Davis", "972-669-4468");
+insert into gas_station.user (username, real_name, password) values ("AndrewMMiller@jourrapide.com", "Andrew M. Miller", "206-740-3363");
+insert into gas_station.user (username, real_name, password) values ("MelissaGHoliday@teleworm.us", "Melissa G. Holiday", "864-596-5642");
+insert into gas_station.user (username, real_name, password) values ("StevenVCarpenter@armyspy.com", "Steven V. Carpenter", "361-348-6501");
