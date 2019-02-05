@@ -58,6 +58,8 @@ public class AuthenticationServlet extends HttpServlet
         secondUser.addTransaction(t);
         userDao.update(firstUser);
         userDao.update(secondUser);
+        for (Transaction tx : firstUser.getTransactions())
+            out.println("<p>" + tx.getAmount() + "</p>");
         out.println("<h1>SAVED</h1>");
     }
 
