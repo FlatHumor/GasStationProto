@@ -5,6 +5,7 @@ import by.flathumor.entity.User;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import java.util.function.Consumer;
 
 public class UserDao extends AUser<User>
@@ -17,11 +18,23 @@ public class UserDao extends AUser<User>
     @Override
     public User findByUsername(String username)
     {
-        Query query = manager.createNamedQuery("User.findByUsername", User.class);
-//        Query query = manager.createQuery("select u from User u where u.username = :username");
+        TypedQuery<User> query = manager.createNamedQuery("User.findByUsername", User.class);
         query.setParameter("username", username);
         try {
             return (User)query.getSingleResult();
+        }
+        catch (NoResultException e) {
+            return null;
+        }
+    }
+
+    @Override
+    public User findByIdentificator(String identificator)
+    {
+        TypedQuery<User> query = manager.createNamedQuery("User.findByIdent", User.class);
+        query.setParameter("ident", identificator);
+        try {
+            return query.getSingleResult();
         }
         catch (NoResultException e) {
             return null;

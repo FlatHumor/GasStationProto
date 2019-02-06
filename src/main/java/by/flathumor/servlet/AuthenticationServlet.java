@@ -22,12 +22,20 @@ public class AuthenticationServlet extends HttpServlet
             throws ServletException, IOException
     {
         PrintWriter out = response.getWriter();
+        String uid = (String)request.getSession().getAttribute("username");
+        if (uid != null)
+        {
+            out.println("You logged. ID = " + uid);
+            return;
+        }
         UserDao userDao = new UserDao();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         User loggedUser = userDao.findByUsername(username);
-        if (loggedUser != null && loggedUser.getPassword().equals(password))
-            out.println("<h1>Welcome " + loggedUser.getUsername() + "</h1>");
+        if (loggedUser != null && loggedUser.getPassword().equals(password)) {
+            out.println("<h1>Welcome " + loggedUser.getRealName() + "</h1>");
+            request.getSession(true).setAttribute("username", loggedUser.getIdentificator());
+        }
         else
             out.println("<h1>Login failed</h1>");
 //        Principal userPrincipal = request.getUserPrincipal();

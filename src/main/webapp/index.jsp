@@ -12,6 +12,13 @@
     <link type="text/css" href="static/styles/custom_auth.css" rel="stylesheet"/>
 </head>
 <body>
+<%
+    String uid = (String) request.getSession().getAttribute("username");
+    String uidLink = "";
+    if (uid != null) {
+        uidLink = uid;
+    }
+%>
 <div class="auth-form">
     <form method="post" action="auth">
         <div class="form-group">
@@ -24,6 +31,7 @@
             <input type="password" class="form-control" id="password" name="password" placeholder="Password">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="#"><% out.print(uidLink); %></a>
     </form>
 </div>
 </body>

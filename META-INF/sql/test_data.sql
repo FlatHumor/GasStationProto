@@ -1,15 +1,15 @@
-insert into gas_station.user (id, username, real_name, password) values (100, 'MichaelVFoley@rhyta.com',          'Michael V. Foley',     '864-481-2631');
-insert into gas_station.user (id, username, real_name, password) values (101, 'AlbertNHarp@rhyta.com',            'Albert N. Harp',       '720-247-8930');
-insert into gas_station.user (id, username, real_name, password) values (102, 'EvaAWilliams@teleworm.us',         'Eva A. Williams',      '336-545-9250');
-insert into gas_station.user (id, username, real_name, password) values (103, 'LindaJMaurice@jourrapide.com',     'Linda J. Maurice',     '724-532-7936');
-insert into gas_station.user (id, username, real_name, password) values (104, 'NicholeHLarry@teleworm.us',        'Nichole H. Larry',     '650-898-7615');
-insert into gas_station.user (id, username, real_name, password) values (105, 'DaleABuchanan@armyspy.com',        'Dale A. Buchanan',     '317-980-8405');
-insert into gas_station.user (id, username, real_name, password) values (106, 'MandyRNorman@teleworm.us',         'Mandy R. Norman',      '573-439-5499');
-insert into gas_station.user (id, username, real_name, password) values (107, 'GretchenJGriswold@jourrapide.com', 'Gretchen J. Griswold', '570-232-2889');
-insert into gas_station.user (id, username, real_name, password) values (108, 'MarySDavis@teleworm.us',           'Mary S. Davis',        '972-669-4468');
-insert into gas_station.user (id, username, real_name, password) values (109, 'AndrewMMiller@jourrapide.com',     'Andrew M. Miller',     '206-740-3363');
-insert into gas_station.user (id, username, real_name, password) values (110, 'MelissaGHoliday@teleworm.us',      'Melissa G. Holiday',   '864-596-5642');
-insert into gas_station.user (id, username, real_name, password) values (111, 'StevenVCarpenter@armyspy.com',     'Steven V. Carpenter',  '361-348-6501');
+insert into gas_station.user (id, ident, username, real_name, password) values (100, uuid(), 'MichaelVFoley@rhyta.com',          'Michael V. Foley',     '864-481-2631');
+insert into gas_station.user (id, ident, username, real_name, password) values (101, uuid(), 'AlbertNHarp@rhyta.com',            'Albert N. Harp',       '720-247-8930');
+insert into gas_station.user (id, ident, username, real_name, password) values (102, uuid(), 'EvaAWilliams@teleworm.us',         'Eva A. Williams',      '336-545-9250');
+insert into gas_station.user (id, ident, username, real_name, password) values (103, uuid(), 'LindaJMaurice@jourrapide.com',     'Linda J. Maurice',     '724-532-7936');
+insert into gas_station.user (id, ident, username, real_name, password) values (104, uuid(), 'NicholeHLarry@teleworm.us',        'Nichole H. Larry',     '650-898-7615');
+insert into gas_station.user (id, ident, username, real_name, password) values (105, uuid(), 'DaleABuchanan@armyspy.com',        'Dale A. Buchanan',     '317-980-8405');
+insert into gas_station.user (id, ident, username, real_name, password) values (106, uuid(), 'MandyRNorman@teleworm.us',         'Mandy R. Norman',      '573-439-5499');
+insert into gas_station.user (id, ident, username, real_name, password) values (107, uuid(), 'GretchenJGriswold@jourrapide.com', 'Gretchen J. Griswold', '570-232-2889');
+insert into gas_station.user (id, ident, username, real_name, password) values (108, uuid(), 'MarySDavis@teleworm.us',           'Mary S. Davis',        '972-669-4468');
+insert into gas_station.user (id, ident, username, real_name, password) values (109, uuid(), 'AndrewMMiller@jourrapide.com',     'Andrew M. Miller',     '206-740-3363');
+insert into gas_station.user (id, ident, username, real_name, password) values (110, uuid(), 'MelissaGHoliday@teleworm.us',      'Melissa G. Holiday',   '864-596-5642');
+insert into gas_station.user (id, ident, username, real_name, password) values (111, uuid(), 'StevenVCarpenter@armyspy.com',     'Steven V. Carpenter',  '361-348-6501');
 
 
 insert into gas_station.transaction (id, amount, description, payer_id, recipient_id)
@@ -59,3 +59,5 @@ insert into gas_station.user_transaction_rel (user_id, transaction_id) values (1
 insert into gas_station.transaction (id, amount, description, payer_id, recipient_id)
 values (111, 5600, 'There are many variations of passages of Lorem Ipsum', 104, 108);
 insert into gas_station.user_transaction_rel (user_id, transaction_id) values (104, 108);
+
+# update gas_station.user set ident = (select uuid())
