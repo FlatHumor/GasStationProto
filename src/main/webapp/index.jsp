@@ -8,10 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <meta charset="UTF-8"/>
     <link type="text/css" href="static/styles/bootstrap.min.css" rel="stylesheet"/>
     <link type="text/css" href="static/styles/custom_auth.css" rel="stylesheet"/>
+    <link type="text/css" href="static/styles/font-awesome.css" rel="stylesheet"/>
 </head>
-<body>
+<body class="gradient-body">
 <%
     String uid = (String) request.getSession().getAttribute("username");
     String uidLink = "";
@@ -20,18 +22,20 @@
     }
 %>
 <div class="auth-form">
+    <div class="auth-form-header">USER LOGIN</div>
     <form method="post" action="auth">
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp"
-                   placeholder="Enter username">
+        <div class="auth-form-fields">
+            <div class="auth-form-field">
+                <i class="fa fa-user"></i>
+                <input type="text" name="username" placeholder="username" class="auth-form-input"/>
+            </div>
+            <div class="auth-form-fields-separator"></div>
+            <div class="auth-form-field">
+                <i class="fa fa-unlock-alt"></i>
+                <input type="password" name="password" placeholder="password" class="auth-form-input"/>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <a href="#"><% out.print(uidLink); %></a>
+            <button type="submit" class="auth-form-button">Login</button>
     </form>
 </div>
 </body>

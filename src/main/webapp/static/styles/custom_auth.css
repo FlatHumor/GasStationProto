@@ -1,9 +1,87 @@
+/*@font-face {*/
+    /*src: url("fa-solid-900.ttf");*/
+    /*font-family: fa-solid-900;*/
+/*}*/
+
 .auth-form
 {
     background-color: white;
     border-radius: 5px;
-    margin: 20px auto;
-    padding: 45px;
-    width: 40%;
-    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    margin: 40px auto;
+    width: 400px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    padding-bottom: 5px;
+}
+
+.gradient-body
+{
+    background-image: linear-gradient(to top, #ff9966, #ff5e62);
+}
+
+.auth-form-header
+{
+    height: 50px;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1), transparent);
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 3;
+    color: #999;
+    font-weight: bold;
+    text-shadow: 0 1px 0 rgba(255,255,255,1);
+}
+
+.auth-form-fields
+{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 30px;
+    background-color: #eee;
+    box-shadow: inset 0 0 1px rgba(0,0,0,0.15);
+}
+
+i.fa
+{
+    color: #aaa;
+}
+
+.auth-form-fields-separator
+{
+    margin: 0 auto;
+    width: 95%;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #fff;
+}
+
+.auth-form-field
+{
+    margin: 2px;
+    padding: 5px;
+    /*border: 1px solid #ddd;*/
+    /*border-radius: 5px;*/
+    background-color: #eee;
+    font-family: "Open Sans", sans-serif;
+}
+
+.auth-form-input
+{
+    border: none;
+    outline: none;
+    background-color: #eee;
+    width: 90%;
+}
+
+.auth-form-button-wrapper
+{
+    margin-bottom: 10px;
+}
+
+.auth-form-button
+{
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1), white);
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    color: #444;
+    margin: 10px auto;
+    display: block;
+    padding: 4px 32px;
 }
