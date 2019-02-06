@@ -22,8 +22,12 @@ public class AuthenticationServlet extends HttpServlet
             throws ServletException, IOException
     {
         PrintWriter out = response.getWriter();
+        UserDao userDao = new UserDao();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        User loggedUser = userDao.findByUsername(username);
+        if (loggedUser != null && loggedUser.getPassword().equals(password))
+            out.println("<h1>Welcome " + loggedUser.getUsername() + "</h1>");
 //        Principal userPrincipal = request.getUserPrincipal();
 //        out.println(userPrincipal.getName());
 //        request.login(username, password);
@@ -64,7 +68,7 @@ public class AuthenticationServlet extends HttpServlet
 //        userDao.update(secondUser);
 //        for (Transaction tx : firstUser.getTransactions())
 //            out.println("<p>" + tx.getAmount() + "</p>");
-        out.println("<h1>SAVED</h1>");
+//        out.println("<h1>SAVED</h1>");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
