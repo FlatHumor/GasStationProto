@@ -3,6 +3,7 @@ package by.flathumor.dao;
 import by.flathumor.entity.User;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import java.util.function.Consumer;
 
@@ -19,7 +20,12 @@ public class UserDao extends AUser<User>
         Query query = manager.createNamedQuery("User.findByUsername", User.class);
 //        Query query = manager.createQuery("select u from User u where u.username = :username");
         query.setParameter("username", username);
-        return (User)query.getSingleResult();
+        try {
+            return (User)query.getSingleResult();
+        }
+        catch (NoResultException e) {
+            return null;
+        }
     }
 
     @Override

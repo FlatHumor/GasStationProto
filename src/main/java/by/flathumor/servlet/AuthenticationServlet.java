@@ -28,6 +28,8 @@ public class AuthenticationServlet extends HttpServlet
         User loggedUser = userDao.findByUsername(username);
         if (loggedUser != null && loggedUser.getPassword().equals(password))
             out.println("<h1>Welcome " + loggedUser.getUsername() + "</h1>");
+        else
+            out.println("<h1>Login failed</h1>");
 //        Principal userPrincipal = request.getUserPrincipal();
 //        out.println(userPrincipal.getName());
 //        request.login(username, password);
