@@ -1,0 +1,31 @@
+.error-body
+{
+    background-color: #eee;
+    color: #444;
+}
+
+.error-message-wrapper
+{
+    width: 500px;
+    margin: 40px auto;
+}
+
+.error-message-title
+{
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: 5em;
+    text-align: center;
+}
+
+.error-message-separator
+{
+    display: block;
+    border-bottom: 1px solid black;
+    margin: 10px 0;
+}
+
+.error-message-body
+{
+
+}

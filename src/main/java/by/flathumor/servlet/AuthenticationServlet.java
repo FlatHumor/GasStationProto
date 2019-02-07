@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.security.Principal;
 
 
 @WebServlet(name = "AuthenticationServlet", urlPatterns = { "/auth" })
@@ -22,68 +21,32 @@ public class AuthenticationServlet extends HttpServlet
             throws ServletException, IOException
     {
         PrintWriter out = response.getWriter();
-        String uid = (String)request.getSession().getAttribute("username");
-        if (uid != null)
+        User user = (User)request.getSession().getAttribute("user");
+        if (user != null)
         {
-            out.println("You logged. ID = " + uid);
+            out.println("You logged. ID = " + user.getIdentificator());
             return;
         }
         UserDao userDao = new UserDao();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         User loggedUser = userDao.findByUsername(username);
-        if (loggedUser != null && loggedUser.getPassword().equals(password)) {
+        if (loggedUser != null && loggedUser.getPassword().equals(password))
+        {
             out.println("<h1>Welcome " + loggedUser.getRealName() + "</h1>");
-            request.getSession(true).setAttribute("username", loggedUser.getIdentificator());
+            request.getSession(true).setAttribute("user", loggedUser);
         }
         else
-            out.println("<h1>Login failed</h1>");
-//        Principal userPrincipal = request.getUserPrincipal();
-//        out.println(userPrincipal.getName());
-//        request.login(username, password);
-//        UserDao userDao = new UserDao();
-//        User firstUser = new User();
-//        User secondUser = new User();
-//        firstUser.setUsername("mark");
-//        firstUser.setPassword("12345");
-//        secondUser.setUsername("soy");
-//        secondUser.setPassword("12345");
-//        userDao.save(firstUser);
-//        userDao.save(secondUser);
-//        TransactionDao transactionDao = new TransactionDao();
-//        User mark = userDao.findByUsername("markel");
-//        if (mark == null)
-//        {
-//            out.println("<p>mark not found</p>");
-//            return;
-//        }
-//        for (Transaction t : mark.getTransactions())
-//            out.println("<p>" + t.getAmount() + "</p>");
-//        User loginUser = new User();
-//        loginUser.setUsername(username);
-//        loginUser.setPassword(password);
-//        userDao.save(loginUser);
-//        User firstUser = userDao.findByUsername("jason@woorhees");
-//        User secondUser = userDao.findByUsername("michael@mayers");
-//        Transaction t = new Transaction();
-//        t.setPayer(firstUser);
-//        t.setRecipient(secondUser);
-//        t.setAmount(1000d);
-//        t.setDescription("if you want to be okay");
-//        t.setTimestamp(System.currentTimeMillis());
-//        transactionDao.save(t);
-//        firstUser.addTransaction(t);
-//        secondUser.addTransaction(t);
-//        userDao.update(firstUser);
-//        userDao.update(secondUser);
-//        for (Transaction tx : firstUser.getTransactions())
-//            out.println("<p>" + tx.getAmount() + "</p>");
-//        out.println("<h1>SAVED</h1>");
+        {
+            request.setAttribute("title", "login failed");
+            request.setAttribute("body", "Something went wrong");
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
-
+        request.getRequestDispatcher("auth.jsp").forward(request, response);
     }
 }
