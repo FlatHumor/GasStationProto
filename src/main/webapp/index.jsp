@@ -36,6 +36,9 @@
             </div>
         </div>
             <button type="submit" class="auth-form-button">Login</button>
+            <a class="auth-form-help" href="help">
+                <i class="fa fa-question"></i>
+            </a>
     </form>
 </div>
 </body>
