@@ -28,18 +28,4 @@ public class TransactionDao extends ATransaction<Transaction>
     public void delete(Transaction transaction) {
         executeTransaction(manager->manager.remove(transaction));
     }
-
-    @Override
-    public void executeTransaction(Consumer<EntityManager> action)
-    {
-        try {
-            manager.getTransaction().begin();
-            action.accept(manager);
-            manager.getTransaction().commit();
-        }
-        catch (Exception e) {
-            manager.getTransaction().rollback();
-            throw e;
-        }
-    }
 }

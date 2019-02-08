@@ -55,18 +55,4 @@ public class UserDao extends AUser<User>
     public void delete(User user) {
         executeTransaction(manager->manager.remove(user));
     }
-
-    @Override
-    public void executeTransaction(Consumer<EntityManager> action)
-    {
-        try {
-            manager.getTransaction().begin();
-            action.accept(manager);
-            manager.getTransaction().commit();
-        }
-        catch (Exception e) {
-            manager.getTransaction().rollback();
-            throw e;
-        }
-    }
 }

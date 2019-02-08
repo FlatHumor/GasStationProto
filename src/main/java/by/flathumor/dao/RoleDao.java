@@ -29,18 +29,4 @@ public class RoleDao extends ARole<Role>
     public void delete(Role role) {
         executeTransaction(manager->manager.remove(role));
     }
-
-    @Override
-    public void executeTransaction(Consumer<EntityManager> action)
-    {
-        try {
-            manager.getTransaction().begin();
-            action.accept(manager);
-            manager.getTransaction().commit();
-        }
-        catch (Exception e) {
-            manager.getTransaction().rollback();
-            throw e;
-        }
-    }
 }

@@ -28,18 +28,4 @@ public class UserSessionDao extends AUserSession<UserSession>
     public void delete(UserSession userSession) {
         executeTransaction(manager->manager.remove(userSession));
     }
-
-    @Override
-    public void executeTransaction(Consumer<EntityManager> action)
-    {
-        try {
-            manager.getTransaction().begin();
-            action.accept(manager);
-            manager.getTransaction().commit();
-        }
-        catch (Exception e) {
-            manager.getTransaction().rollback();
-            throw e;
-        }
-    }
 }

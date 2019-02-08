@@ -9,5 +9,4 @@ public interface Dao<T>
     void save(T object);
     void update(T object);
     void delete(T object);
-    void executeTransaction(Consumer<EntityManager> action);
 }
