@@ -14,5 +14,9 @@
     <div>
         Help page will be here.
     </div>
+<jsp:useBean id="user" class="by.flathumor.entity.User" scope="session"/>
+
+<input value="${user.username}"/>
+<input value="${user.password}"/>
 </body>
 </html>
