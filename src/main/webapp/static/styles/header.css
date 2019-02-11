@@ -1,0 +1,16 @@
+* 
+{
+    margin: 0;
+    padding: 0;
+}
+
+.header
+{
+    height: 50px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background-color: #ffffff;
+    box-shadow: 0 3px 2px rgba(0,0,0,0.1);
+    line-height: 3;
+    padding: 0 10px;
+    /* background-image: linear-gradient(to bottom, #eee, #fff); */
+}

@@ -9,12 +9,15 @@
 <html>
 <head>
     <title>Help</title>
+    <jsp:include page="views/styles.html"/>
 </head>
 <body>
+<jsp:include page="views/header.jsp"/>
     <div>
         Help page will be here.
     </div>
-<jsp:useBean id="user" class="by.flathumor.entity.User" scope="session"/>
+<jsp:useBean id="user" class="by.flathumor.entity.User"/>
+
 
 <input value="${user.username}"/>
 <input value="${user.password}"/>

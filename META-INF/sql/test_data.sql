@@ -11,6 +11,10 @@ insert into gas_station.user (id, ident, username, real_name, password) values (
 insert into gas_station.user (id, ident, username, real_name, password) values (110, uuid(), 'MelissaGHoliday@teleworm.us',      'Melissa G. Holiday',   '864-596-5642');
 insert into gas_station.user (id, ident, username, real_name, password) values (111, uuid(), 'StevenVCarpenter@armyspy.com',     'Steven V. Carpenter',  '361-348-6501');
 
+/*
+StevenVCarpenter@armyspy.com
+361-348-6501
+*/
 
 insert into gas_station.transaction (id, amount, description, payer_id, recipient_id)
 values (100, 25000, 'Lorem Ipsum is simply dummy text', 100, 107);

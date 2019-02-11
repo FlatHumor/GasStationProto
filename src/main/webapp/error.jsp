@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>Error</title>
-    <link type="text/css" href="static/styles/error.css" rel="stylesheet"/>
+    <jsp:include page="views/styles.html"/>
 </head>
 <body class="error-body">
     <div class="error-message-wrapper">

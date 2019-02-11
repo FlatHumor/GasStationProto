@@ -9,11 +9,10 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <link type="text/css" href="static/styles/bootstrap.min.css" rel="stylesheet"/>
-    <link type="text/css" href="static/styles/custom_auth.css" rel="stylesheet"/>
-    <link type="text/css" href="static/styles/font-awesome.css" rel="stylesheet"/>
+    <jsp:include page="views/styles.html"/>
 </head>
 <body class="gradient-body">
+<jsp:include page="views/header.jsp"/>
 <div class="auth-form">
     <div class="auth-form-header">USER LOGIN</div>
     <form method="post" action="auth">
