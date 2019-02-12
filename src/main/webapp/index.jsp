@@ -9,8 +9,10 @@
 <html>
 <head>
     <title>Welcome</title>
+    <jsp:include page="views/styles.html"/>
 </head>
 <body>
-
+    <jsp:include page="views/header.jsp"/>
+    <div>Index page</div>
 </body>
 </html>

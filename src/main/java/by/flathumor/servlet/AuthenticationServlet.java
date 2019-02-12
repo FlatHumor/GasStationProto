@@ -18,7 +18,7 @@ public class AuthenticationServlet extends HttpServlet
 {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
+//        PrintWriter out = response.getWriter();
 //        User user = (User) request.getSession().getAttribute("user");
 //        if (user != null) {
 //            out.println("You logged. ID = " + user.getIdentificator());
@@ -33,9 +33,9 @@ public class AuthenticationServlet extends HttpServlet
         User loggedUser = userDao.findByUsername(username);
         if (loggedUser != null && loggedUser.getPassword().equals(password))
         {
-            out.println("<h1>Welcome " + loggedUser.getRealName() + "</h1>");
             request.getSession(true).setAttribute("user", loggedUser);
             request.getSession().setMaxInactiveInterval(30);
+            response.sendRedirect("/");
         }
         else
         {

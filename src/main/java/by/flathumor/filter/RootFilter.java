@@ -43,6 +43,7 @@ public class RootFilter implements Filter
         excludedUrls.add("/static");
         excludedUrls.add("/help.jsp");
         excludedUrls.add("/error.jsp");
+        excludedUrls.add("/auth");
     }
 
     public void destroy() { }
