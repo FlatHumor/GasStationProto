@@ -1,4 +1,5 @@
-<%@ page import="by.flathumor.entity.User" %><%--
+<%@ page import="by.flathumor.entity.User" %>
+<%--
   Created by IntelliJ IDEA.
   User: mark
   Date: 2/11/19
@@ -7,17 +8,15 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%
-    String displayUsername = "Not logged";
-    User user = (User) request.getSession().getAttribute("user");
-    if (user != null)
-        displayUsername = user.getUsername();
-%>
-
 <header class="header">
-
-    <div class="pull-right">
-        <i class="fa fa-user"></i>
-        <a href="#"><% out.print(displayUsername); %></a>
+    <jsp:useBean id="user" class="by.flathumor.entity.User" scope="session"/>
+    <div class="left-side">
+        <a href="/" class="header-logo"></a>
+    </div>
+    <div class="right-side">
+        <div>
+            <i class="fa fa-user"></i>
+            <a href="/user/notimplemented">${user.username}</a>
+        </div>
     </div>
 </header>

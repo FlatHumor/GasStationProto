@@ -1,8 +1,7 @@
 package by.flathumor.servlet;
 
-import by.flathumor.dao.TransactionDao;
+import by.flathumor.bean.ErrorBean;
 import by.flathumor.dao.UserDao;
-import by.flathumor.entity.Transaction;
 import by.flathumor.entity.User;
 
 import javax.servlet.ServletException;
@@ -20,14 +19,14 @@ public class AuthenticationServlet extends HttpServlet
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
-        User user = (User) request.getSession().getAttribute("user");
-        if (user != null) {
-            out.println("You logged. ID = " + user.getIdentificator());
-            out.println("request.getContextPath(): " + request.getContextPath());
-            out.println("request.getRequestURI(): " + request.getRequestURI());
-            out.println("request.getAuthType(): " + request.getAuthType());
-            return;
-        }
+//        User user = (User) request.getSession().getAttribute("user");
+//        if (user != null) {
+//            out.println("You logged. ID = " + user.getIdentificator());
+//            out.println("request.getContextPath(): " + request.getContextPath());
+//            out.println("request.getRequestURI(): " + request.getRequestURI());
+//            out.println("request.getAuthType(): " + request.getAuthType());
+//            return;
+//        }
         UserDao userDao = new UserDao();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
@@ -40,8 +39,10 @@ public class AuthenticationServlet extends HttpServlet
         }
         else
         {
-            request.setAttribute("title", "login failed");
-            request.setAttribute("body", "Something went wrong");
+            ErrorBean errorBean = new ErrorBean();
+            errorBean.setTitle("login failed");
+            errorBean.setBody("Something went wrong. Login please");
+            request.setAttribute("error", errorBean);
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
     }

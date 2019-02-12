@@ -12,13 +12,15 @@
     <jsp:include page="views/styles.html"/>
 </head>
 <body class="error-body">
+    <jsp:include page="views/header.jsp"/>
+    <jsp:useBean id="error" class="by.flathumor.bean.ErrorBean" scope="request"/>
     <div class="error-message-wrapper">
         <div class="error-message-title">
-            <span><%= request.getAttribute("title") %></span>
+            <span>${error.title}</span>
         </div>
         <div class="error-message-separator"></div>
         <div class="error-message-body">
-            <span><%= request.getAttribute("body") %></span>
+            <span>${error.body}</span>
         </div>
     </div>
 </body>

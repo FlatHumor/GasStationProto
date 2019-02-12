@@ -6,11 +6,23 @@
 
 .header
 {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
     height: 50px;
-    border: 1px solid rgba(0,0,0,0.1);
-    background-color: #ffffff;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
     box-shadow: 0 3px 2px rgba(0,0,0,0.1);
-    line-height: 3;
     padding: 0 10px;
-    /* background-image: linear-gradient(to bottom, #eee, #fff); */
+    background-image: linear-gradient(to bottom, #eee, #fff);
+}
+
+.header-logo
+{
+    display: block;
+    width: 100px;
+    height: 50px;
+    background: url("../img/acme_logo.png") no-repeat;
+    background-size: 100px;
+    background-position-y: center;
 }
