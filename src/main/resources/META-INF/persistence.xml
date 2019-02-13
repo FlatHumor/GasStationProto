@@ -13,6 +13,7 @@
         <class>by.flathumor.entity.Permission</class>
         <class>by.flathumor.entity.Product</class>
         <class>by.flathumor.entity.Purchase</class>
+        <class>by.flathumor.entity.Order</class>
         <properties>
 
             <!-- MYSQL SECTION -->
@@ -22,7 +23,7 @@
             <property name="javax.persistence.jdbc.user" value="test"/>
             <property name="javax.persistence.jdbc.password" value="test"/>
             <property name="javax.persistence.schema-generation.database.action" value="create"/>
-            <property name="javax.persistence.sql-load-script-source" value="META-INF/sql/test_data.sql"/>
+            <!--<property name="javax.persistence.sql-load-script-source" value="META-INF/sql/test_data.sql"/>-->
 
             <!-- OTHER PROPERTIES -->
 
