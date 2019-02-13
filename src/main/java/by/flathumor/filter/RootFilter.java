@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebFilter("/*")
+@WebFilter("/secure")
 public class RootFilter implements Filter
 {
     private List<String> excludedUrls;
