@@ -1,4 +1,4 @@
-package by.flathumor.repository;
+package by.flathumor.datasource;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

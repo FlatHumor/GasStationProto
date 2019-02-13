@@ -1,13 +1,11 @@
-package by.flathumor.dao;
+package by.flathumor.repository;
 
 import by.flathumor.entity.Permission;
 
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import java.util.function.Consumer;
 
 @Stateless
-public class PermissionDao extends APermission<Permission>
+public class PermissionRepository extends APermission<Permission>
 {
     @Override
     public Permission findById(Long id) {

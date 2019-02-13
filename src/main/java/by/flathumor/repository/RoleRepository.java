@@ -1,14 +1,11 @@
-package by.flathumor.dao;
+package by.flathumor.repository;
 
 import by.flathumor.entity.Role;
-import by.flathumor.repository.EntityManagerUtil;
 
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import java.util.function.Consumer;
 
 @Stateless
-public class RoleDao extends ARole<Role>
+public class RoleRepository extends ARole<Role>
 {
     @Override
     public Role findById(Long id) {

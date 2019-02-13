@@ -1,14 +1,11 @@
-package by.flathumor.dao;
+package by.flathumor.repository;
 
 import by.flathumor.entity.User;
 
-import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
-import java.util.function.Consumer;
 
-public class UserDao extends AUser<User>
+public class UserRepository extends AUser<User>
 {
     @Override
     public User findById(Long id) {

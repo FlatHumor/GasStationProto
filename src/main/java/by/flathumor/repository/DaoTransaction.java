@@ -1,6 +1,6 @@
-package by.flathumor.dao;
+package by.flathumor.repository;
 
-import by.flathumor.repository.EntityManagerUtil;
+import by.flathumor.datasource.EntityManagerUtil;
 
 import javax.persistence.EntityManager;
 import java.util.function.Consumer;

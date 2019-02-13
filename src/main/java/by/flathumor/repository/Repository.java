@@ -1,6 +1,6 @@
-package by.flathumor.dao;
+package by.flathumor.repository;
 
-public interface Dao<T>
+public interface Repository<T>
 {
     T findById(Long id);
     void save(T object);

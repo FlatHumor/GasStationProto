@@ -1,13 +1,11 @@
-package by.flathumor.dao;
+package by.flathumor.repository;
 
 import by.flathumor.entity.Transaction;
 
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import java.util.function.Consumer;
 
 @Stateless
-public class TransactionDao extends ATransaction<Transaction>
+public class TransactionRepository extends ATransaction<Transaction>
 {
     @Override
     public Transaction findById(Long id) {

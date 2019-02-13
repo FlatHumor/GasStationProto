@@ -1,13 +1,11 @@
-package by.flathumor.dao;
+package by.flathumor.repository;
 
 import by.flathumor.entity.UserSession;
 
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import java.util.function.Consumer;
 
 @Stateless
-public class UserSessionDao extends AUserSession<UserSession>
+public class UserSessionRepository extends AUserSession<UserSession>
 {
     @Override
     public UserSession findById(Long id) {

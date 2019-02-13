@@ -1,13 +1,9 @@
-package by.flathumor.dao;
+package by.flathumor.repository;
 
 import by.flathumor.entity.Permission;
-import by.flathumor.repository.EntityManagerUtil;
-
-import javax.persistence.EntityManager;
-import java.util.function.Consumer;
 
 public abstract class APermission<T extends Permission>
-        extends DaoTransaction implements Dao<T>
+        extends DaoTransaction implements Repository<T>
 {
     public abstract T findById(Long id);
     public abstract void save(T object);

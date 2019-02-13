@@ -1,7 +1,5 @@
 package by.flathumor.filter;
 
-import by.flathumor.entity.User;
-
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;

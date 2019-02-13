@@ -1,10 +1,10 @@
 package by.flathumor.service;
 
-import by.flathumor.dao.UserDao;
+import by.flathumor.repository.UserRepository;
 
 public class UserService
 {
-    private UserDao userDao = new UserDao();
+    private UserRepository userDao = new UserRepository();
 
 
 }

@@ -1,7 +1,7 @@
 package by.flathumor.servlet;
 
 import by.flathumor.bean.ErrorBean;
-import by.flathumor.dao.UserDao;
+import by.flathumor.repository.UserRepository;
 import by.flathumor.entity.User;
 
 import javax.servlet.ServletException;
@@ -26,7 +26,7 @@ public class AuthenticationServlet extends HttpServlet
 //            out.println("request.getAuthType(): " + request.getAuthType());
 //            return;
 //        }
-        UserDao userDao = new UserDao();
+        UserRepository userDao = new UserRepository();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         User loggedUser = userDao.findByUsername(username);
