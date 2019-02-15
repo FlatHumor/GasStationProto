@@ -16,6 +16,7 @@ StevenVCarpenter@armyspy.com
 361-348-6501
 */
 
+/*
 insert into gas_station.transaction (id, amount, description, payer_id, recipient_id)
 values (100, 25000, 'Lorem Ipsum is simply dummy text', 100, 107);
 insert into gas_station.user_transaction_rel (user_id, transaction_id) values (100, 107);
@@ -63,5 +64,15 @@ insert into gas_station.user_transaction_rel (user_id, transaction_id) values (1
 insert into gas_station.transaction (id, amount, description, payer_id, recipient_id)
 values (111, 5600, 'There are many variations of passages of Lorem Ipsum', 104, 108);
 insert into gas_station.user_transaction_rel (user_id, transaction_id) values (104, 108);
+*/
+
+insert into gas_station.product (id, name, price) values (100, 'petrol 92', 0.60);
+insert into gas_station.product (id, name, price) values (101, 'petrol 95', 0.70);
+insert into gas_station.product (id, name, price) values (102, 'petrol 98', 0.77);
+insert into gas_station.product (id, name, price) values (103, 'diesel', 0.78);
+insert into gas_station.product (id, name, price) values (104, 'coffee', 1.00);
+insert into gas_station.product (id, name, price) values (105, 'tea', 0.50);
+insert into gas_station.product (id, name, price) values (106, 'water', 0.20);
+
 
 # update gas_station.user set ident = (select uuid())

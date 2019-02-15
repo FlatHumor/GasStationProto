@@ -12,12 +12,17 @@
         <class>by.flathumor.entity.Role</class>
         <class>by.flathumor.entity.Permission</class>
         <class>by.flathumor.entity.Product</class>
-        <class>by.flathumor.entity.Purchase</class>
         <class>by.flathumor.entity.Order</class>
+        <class>by.flathumor.entity.Purchase</class>
         <properties>
 
+            <!-- SQL LOGGING -->
+            <!--<property name="hibernate.show_sql" value="true"/>-->
+            <!--<property name="hibernate.format_sql" value="true"/>-->
+            <!--<property name="hibernate.use_sql_comments" value="true"/>-->
+
             <!-- MYSQL SECTION -->
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url"
                       value="jdbc:mysql://localhost:3306/gas_station?characterEncoding=UTF-8"/>
             <property name="javax.persistence.jdbc.user" value="test"/>

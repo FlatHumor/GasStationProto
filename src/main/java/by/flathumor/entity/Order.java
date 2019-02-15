@@ -3,7 +3,7 @@ package by.flathumor.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "order")
+@Table(name = "order_line")
 public class Order
 {
     @Id
@@ -20,6 +20,10 @@ public class Order
 
     @Column(name = "amount")
     private Double amount;
+
+    @JoinColumn(name = "purchase_id")
+    @ManyToOne(targetEntity = Purchase.class)
+    private Purchase purchase;
 
     public Long getId() {
         return id;
@@ -51,5 +55,13 @@ public class Order
 
     public void setAmount(Double amount) {
         this.amount = amount;
+    }
+
+    public Purchase getPurchase() {
+        return purchase;
+    }
+
+    public void setPurchase(Purchase purchase) {
+        this.purchase = purchase;
     }
 }
