@@ -73,6 +73,11 @@ insert into gas_station.product (id, name, price) values (103, 'diesel', 0.78);
 insert into gas_station.product (id, name, price) values (104, 'coffee', 1.00);
 insert into gas_station.product (id, name, price) values (105, 'tea', 0.50);
 insert into gas_station.product (id, name, price) values (106, 'water', 0.20);
-
+insert into gas_station.product (id, name, price) values (107, 'oil', 20.00);
+insert into gas_station.product (id, name, price) values (108, 'antifreeze', 15.00);
+insert into gas_station.product (id, name, price) values (109, 'battery', 120.00);
+insert into gas_station.product (id, name, price) values (110, 'beer', 2.00);
+insert into gas_station.product (id, name, price) values (111, 'Coca-Cola', 1.00);
+insert into gas_station.product (id, name, price) values (112, 'air-fresher', 0.15);
 
 # update gas_station.user set ident = (select uuid())

@@ -24,7 +24,7 @@
             <!-- MYSQL SECTION -->
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:mysql://localhost:3306/gas_station?characterEncoding=UTF-8"/>
+                      value="jdbc:mysql://localhost:3306/gas_station?characterEncoding=UTF-8&amp;serverTimezone=UTC"/>
             <property name="javax.persistence.jdbc.user" value="test"/>
             <property name="javax.persistence.jdbc.password" value="test"/>
             <property name="javax.persistence.schema-generation.database.action" value="create"/>
