@@ -37,12 +37,9 @@ public class User
             inverseJoinColumns = @JoinColumn(name = "transaction_id"))
     private List<Transaction> transactions = new ArrayList<>();
 
-    @ManyToMany
-    @JoinTable(
-            name = "user_role_rel",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private List<Role> roles = new ArrayList<>();
+    @ManyToOne(targetEntity = Role.class)
+    @JoinColumn(name = "role_id")
+    private Role role;
 
     public void addTransaction(Transaction transaction) {
         transactions.add(transaction);
@@ -52,16 +49,6 @@ public class User
     public void removeTransaction(Transaction transaction) {
         transactions.remove(transaction);
         transaction.getUsers().remove(this);
-    }
-
-    public void addRole(Role role) {
-        roles.add(role);
-        role.getUsers().add(this);
-    }
-
-    public void removeRole(Role role) {
-        roles.remove(role);
-        role.getUsers().remove(this);
     }
 
     public Long getId() {
@@ -88,10 +75,6 @@ public class User
         return transactions;
     }
 
-    public List<Role> getRoles() {
-        return roles;
-    }
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -116,7 +99,11 @@ public class User
         this.transactions = transactions;
     }
 
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

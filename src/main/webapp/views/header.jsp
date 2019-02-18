@@ -16,7 +16,7 @@
     <div class="right-side">
         <div>
             <i class="fa fa-user"></i>
-            <a href="/user/notimplemented">${user.username}</a>
+            <a href="/user">${user.username}</a>
         </div>
     </div>
 </header>

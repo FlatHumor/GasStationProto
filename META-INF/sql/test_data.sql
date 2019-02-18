@@ -11,12 +11,21 @@ insert into gas_station.user (id, ident, username, real_name, password) values (
 insert into gas_station.user (id, ident, username, real_name, password) values (110, uuid(), 'MelissaGHoliday@teleworm.us',      'Melissa G. Holiday',   '864-596-5642');
 insert into gas_station.user (id, ident, username, real_name, password) values (111, uuid(), 'StevenVCarpenter@armyspy.com',     'Steven V. Carpenter',  '361-348-6501');
 
-/*
+/*********************************
+
+*** ADMIN ***
 StevenVCarpenter@armyspy.com
 361-348-6501
-*/
 
-/*
+*** SELLER ***
+MichaelVFoley@rhyta.com
+864-481-2631
+
+************************************/
+
+
+
+
 insert into gas_station.transaction (id, amount, description, payer_id, recipient_id)
 values (100, 25000, 'Lorem Ipsum is simply dummy text', 100, 107);
 insert into gas_station.user_transaction_rel (user_id, transaction_id) values (100, 107);
@@ -64,7 +73,7 @@ insert into gas_station.user_transaction_rel (user_id, transaction_id) values (1
 insert into gas_station.transaction (id, amount, description, payer_id, recipient_id)
 values (111, 5600, 'There are many variations of passages of Lorem Ipsum', 104, 108);
 insert into gas_station.user_transaction_rel (user_id, transaction_id) values (104, 108);
-*/
+
 
 insert into gas_station.product (id, name, price) values (100, 'petrol 92', 0.60);
 insert into gas_station.product (id, name, price) values (101, 'petrol 95', 0.70);
@@ -79,5 +88,32 @@ insert into gas_station.product (id, name, price) values (109, 'battery', 120.00
 insert into gas_station.product (id, name, price) values (110, 'beer', 2.00);
 insert into gas_station.product (id, name, price) values (111, 'Coca-Cola', 1.00);
 insert into gas_station.product (id, name, price) values (112, 'air-fresher', 0.15);
+
+
+insert into gas_station.role (id, description, name) values (100, 'Administrator', 'admin');
+insert into gas_station.role (id, description, name) values (101, 'Technical', 'tech');
+insert into gas_station.role (id, description, name) values (102, 'Customer', 'customer');
+insert into gas_station.role (id, description, name) values (103, 'Seller', 'seller');
+
+insert into gas_station.permission (id, name, url) values (100, 'ALL', '/*');
+insert into gas_station.permission (id, name, url) values (101, 'POS_TERMINAL', '/pos_terminal/*');
+insert into gas_station.permission (id, name, url) values (102, 'MOBILE_APP', '/mobile/*');
+insert into gas_station.permission (id, name, url) values (103, 'USER_PROFILE', '/user/*');
+
+insert into gas_station.role_permission_rel (role_id, permission_id) values (100, 100);
+insert into gas_station.role_permission_rel (role_id, permission_id) values (101, 100);
+insert into gas_station.role_permission_rel (role_id, permission_id) values (102, 102);
+insert into gas_station.role_permission_rel (role_id, permission_id) values (103, 101);
+
+update gas_station.user set role_id = 100 where id = 111;
+update gas_station.user set role_id = 103 where id between 100 and 103;
+
+/*
+insert into gas_station.user_role_rel (user_id, role_id) values (100, 103);
+insert into gas_station.user_role_rel (user_id, role_id) values (101, 103);
+insert into gas_station.user_role_rel (user_id, role_id) values (102, 103);
+insert into gas_station.user_role_rel (user_id, role_id) values (103, 103);
+insert into gas_station.user_role_rel (user_id, role_id) values (111, 100);
+*/
 
 # update gas_station.user set ident = (select uuid())

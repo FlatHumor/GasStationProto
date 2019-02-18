@@ -33,7 +33,7 @@ public class AuthenticationServlet extends HttpServlet
         if (loggedUser != null && loggedUser.getPassword().equals(password))
         {
             request.getSession(true).setAttribute("user", loggedUser);
-            request.getSession().setMaxInactiveInterval(30);
+//            request.getSession().setMaxInactiveInterval(30);
             response.sendRedirect("/");
         }
         else

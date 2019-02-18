@@ -26,7 +26,7 @@ public class Role
             inverseJoinColumns = @JoinColumn(name = "permission_id"))
     List<Permission> permissions = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "roles")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, targetEntity = User.class, mappedBy = "role")
     private List<User> users = new ArrayList<>();
 
     public void addPermission(Permission permission) {

@@ -1,0 +1,19 @@
+.profile-wrapper
+{
+
+}
+
+.userpic
+{
+    float: left;
+}
+
+.userpic-image
+{
+    width: 200px;
+}
+
+.profile-content
+{
+    padding: 5px;
+}
