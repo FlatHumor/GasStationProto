@@ -24,9 +24,7 @@
                 <img class="userpic-image" src="static/img/default-user.png"/>
             </div>
             <div class="profile-content">
-                <p>${user.username}</p>
-                <p>${user.realName}</p>
-                <p>${user.role.description}</p>
+                <h2>${user.person.fullName}</h2>
             </div>
         </div>
     </jsp:body>

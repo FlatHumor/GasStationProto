@@ -7,6 +7,7 @@
     <persistence-unit name="user-unit" transaction-type="RESOURCE_LOCAL">
         <!-- transaction-type="JTA" -->
         <class>by.flathumor.entity.User</class>
+        <class>by.flathumor.entity.Person</class>
         <class>by.flathumor.entity.Transaction</class>
         <class>by.flathumor.entity.UserSession</class>
         <class>by.flathumor.entity.Role</class>
@@ -27,7 +28,7 @@
                       value="jdbc:mysql://localhost:3306/gas_station?characterEncoding=UTF-8&amp;serverTimezone=UTC"/>
             <property name="javax.persistence.jdbc.user" value="test"/>
             <property name="javax.persistence.jdbc.password" value="test"/>
-            <!--<property name="javax.persistence.schema-generation.database.action" value="create"/>-->
+            <property name="javax.persistence.schema-generation.database.action" value="create"/>
             <!--<property name="javax.persistence.sql-load-script-source" value="META-INF/sql/test_data.sql"/>-->
 
             <!-- OTHER PROPERTIES -->

@@ -21,14 +21,15 @@ public class User
     @Column(name = "username")
     private String username;
 
-    @Column(name = "real_name")
-    private String realName;
-
     @Column(name = "ident")
     private String identificator;
 
     @Column(name = "password")
     private String password;
+
+    @OneToOne(targetEntity = Person.class)
+    @JoinColumn(name = "person_id")
+    private Person person;
 
     @ManyToMany
     @JoinTable(
@@ -59,10 +60,6 @@ public class User
         return username;
     }
 
-    public String getRealName() {
-        return realName;
-    }
-
     public String getIdentificator() {
         return identificator;
     }
@@ -83,10 +80,6 @@ public class User
         this.username = username;
     }
 
-    public void setRealName(String realName) {
-        this.realName = realName;
-    }
-
     public void setIdentificator(String identificator) {
         this.identificator = identificator;
     }
@@ -105,5 +98,13 @@ public class User
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
     }
 }

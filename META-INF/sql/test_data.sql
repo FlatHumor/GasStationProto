@@ -1,24 +1,49 @@
-insert into gas_station.user (id, ident, username, real_name, password) values (100, uuid(), 'MichaelVFoley@rhyta.com',          'Michael V. Foley',     '864-481-2631');
-insert into gas_station.user (id, ident, username, real_name, password) values (101, uuid(), 'AlbertNHarp@rhyta.com',            'Albert N. Harp',       '720-247-8930');
-insert into gas_station.user (id, ident, username, real_name, password) values (102, uuid(), 'EvaAWilliams@teleworm.us',         'Eva A. Williams',      '336-545-9250');
-insert into gas_station.user (id, ident, username, real_name, password) values (103, uuid(), 'LindaJMaurice@jourrapide.com',     'Linda J. Maurice',     '724-532-7936');
-insert into gas_station.user (id, ident, username, real_name, password) values (104, uuid(), 'NicholeHLarry@teleworm.us',        'Nichole H. Larry',     '650-898-7615');
-insert into gas_station.user (id, ident, username, real_name, password) values (105, uuid(), 'DaleABuchanan@armyspy.com',        'Dale A. Buchanan',     '317-980-8405');
-insert into gas_station.user (id, ident, username, real_name, password) values (106, uuid(), 'MandyRNorman@teleworm.us',         'Mandy R. Norman',      '573-439-5499');
-insert into gas_station.user (id, ident, username, real_name, password) values (107, uuid(), 'GretchenJGriswold@jourrapide.com', 'Gretchen J. Griswold', '570-232-2889');
-insert into gas_station.user (id, ident, username, real_name, password) values (108, uuid(), 'MarySDavis@teleworm.us',           'Mary S. Davis',        '972-669-4468');
-insert into gas_station.user (id, ident, username, real_name, password) values (109, uuid(), 'AndrewMMiller@jourrapide.com',     'Andrew M. Miller',     '206-740-3363');
-insert into gas_station.user (id, ident, username, real_name, password) values (110, uuid(), 'MelissaGHoliday@teleworm.us',      'Melissa G. Holiday',   '864-596-5642');
-insert into gas_station.user (id, ident, username, real_name, password) values (111, uuid(), 'StevenVCarpenter@armyspy.com',     'Steven V. Carpenter',  '361-348-6501');
+insert into gas_station.person (id, address, birth_date, company, document, email, employment_date, fullname, phone, position, salary, ssn)
+    values (100, '4689 Patton Lane, Mebane, North Carolina(NC), 27302', '1973-06-20', 'Independent Wealth Management', '907624790', 'verda1994@yahoo.com', '2010-06-05', 'Christopher T Newsome', '336-907-9691', 'Production, Planning, and Expediting Clerk', 8200, '245-46-1693');
+insert into gas_station.person (id, address, birth_date, company, document, email, employment_date, fullname, phone, position, salary, ssn)
+    values (101, '3678 Poe Road, Mount Pleasant, South Carolina(SC), 29464', '1984-08-10', 'Listenin', '451788724', 'tevin2006@gmail.com', '2005-01-20', 'Norman D Wright', '803-237-9390', 'Air Crew Officer', 4200, '249-92-6979');
+insert into gas_station.person (id, address, birth_date, company, document, email, employment_date, fullname, phone, position, salary, ssn)
+    values (102, '3811 Euclid Avenue, Los Angeles, California(CA), 90017', '1980-08-12', 'Red Robin Stores', '262592785', 'vergie1975@hotmail.com', '2015-06-02', 'Stephen V Moore', '323-371-4382', 'Cook, Fast Food', 6800, '623-23-7602');
+insert into gas_station.person (id, address, birth_date, company, document, email, employment_date, fullname, phone, position, salary, ssn)
+    values (103, '2275 Sundown Lane', '1981-05-04', 'EnviroSource Design', '642712870', 'lilliana.bro@gmail.com', '2012-08-15', 'Brian J Stewart', '512-209-6087', 'Credit Authorizer, Checker, and Clerk', 4700, '630-76-5702');
+insert into gas_station.person (id, address, birth_date, company, document, email, employment_date, fullname, phone, position, salary, ssn)
+    values (104, '4826 Village View Drive, Fort Myers, Florida(FL), 33901', '1985-11-12', 'Opti-Tek', '438788399', 'arnaldo1978@gmail.com', '2013-05-23', 'Bonnie C Robinson', '813-795-5276', 'Medical Equipment Preparer', 30000, '263-66-8819');
+insert into gas_station.person (id, address, birth_date, company, document, email, employment_date, fullname, phone, position, salary, ssn)
+    values (105, '4767 Brentwood Drive, Austin, Texas(TX), 78744', '1986-05-25', 'Zantigo', '996815873', 'laurel1971@gmail.com', '2016-12-15', 'Kevin B Estrada', '512-217-5544', 'Forest Fire Fighting and Prevention Supervisor', 4400, '463-25-2160');
+insert into gas_station.person (id, address, birth_date, company, document, email, employment_date, fullname, phone, position, salary, ssn)
+    values (106, '40 Dane Street, Elk, Washington(WA), 99009', '1990-02-22', 'Britches of Georgetown', '617939867', 'cleora_rolfs@gmail.com', '2017-11-05', 'Richard D Andrews', '509-731-1543', 'Welder, Cutter, and Welder Fitter', 2200, '533-86-9187');
+insert into gas_station.person (id, address, birth_date, company, document, email, employment_date, fullname, phone, position, salary, ssn)
+    values (107, '961 Shingleton Road, Climax, Michigan(MI), 49034', '1979-11-25', 'Fayva', '594741484', 'macy_spink3@gmail.com', '2005-10-29', 'Jeannine R Whitacre', '734-204-9785', 'Dental Laboratory Technician', 3900, '371-68-5308');
+insert into gas_station.person (id, address, birth_date, company, document, email, employment_date, fullname, phone, position, salary, ssn)
+    values (108, '318 Davis Avenue, Bridgeville, California(CA), 95526', '1988-01-05', 'Morrison', '228323007', 'kamryn.bauc4@gmail.com', '2015-10-15', 'Robyn J March', '714-944-3014', 'Market Research Analyst and Marketing Specialist', 2000, '572-66-9746');
+insert into gas_station.person (id, address, birth_date, company, document, email, employment_date, fullname, phone, position, salary, ssn)
+    values (109, '4723 Hall Valley Drive, Point Pleasant, West Virginia(WV), 25550', '1990-02-10', 'Modern Architecture Design', '444007006', 'shanny_scho@gmail.com', '2012-12-13', 'Candace A Head', '304-593-8266', 'Business Teacher, Postsecondary', 4100, '232-10-9765');
+insert into gas_station.person (id, address, birth_date, company, document, email, employment_date, fullname, phone, position, salary, ssn)
+    values (110, '4724 Golden Ridge Road, Schenectady, New York(NY), 12303', '1975-05-05', 'Wholesale Club, Inc.', '670006844', 'gladyce_tillm@yahoo.com', '2012-02-15', 'Richard I Hall', '518-341-8270', 'Medical Equipment Repairer', 8800, '067-66-7280');
+insert into gas_station.person (id, address, birth_date, company, document, email, employment_date, fullname, phone, position, salary, ssn)
+    values (111, '4772 Pineview Drive, Houston, Minnesota(MN), 55943', '1989-04-01', 'Asian Solutions', '396560375', 'maureen1993@hotmail.com', '2015-06-02', 'Noelle S Rainwater', '651-373-4385', 'Architect, Except Landscape and Naval', 4700, '475-21-7846');
+
+insert into gas_station.user (id, ident, username, person_id, password) values (100, uuid(), 'verda1994@yahoo.com',     100, '864-481-2631');
+insert into gas_station.user (id, ident, username, person_id, password) values (101, uuid(), 'tevin2006@gmail.com',     101, '720-247-8930');
+insert into gas_station.user (id, ident, username, person_id, password) values (102, uuid(), 'vergie1975@hotmail.com',  102, '336-545-9250');
+insert into gas_station.user (id, ident, username, person_id, password) values (103, uuid(), 'lilliana.bro@gmail.com',  103, '724-532-7936');
+insert into gas_station.user (id, ident, username, person_id, password) values (104, uuid(), 'arnaldo1978@gmail.com',   104, '650-898-7615');
+insert into gas_station.user (id, ident, username, person_id, password) values (105, uuid(), 'laurel1971@gmail.com',    105, '317-980-8405');
+insert into gas_station.user (id, ident, username, person_id, password) values (106, uuid(), 'cleora_rolfs@gmail.com',  106, '573-439-5499');
+insert into gas_station.user (id, ident, username, person_id, password) values (107, uuid(), 'macy_spink3@gmail.com',   107, '570-232-2889');
+insert into gas_station.user (id, ident, username, person_id, password) values (108, uuid(), 'kamryn.bauc4@gmail.com',  108, '972-669-4468');
+insert into gas_station.user (id, ident, username, person_id, password) values (109, uuid(), 'shanny_scho@gmail.com',   109, '206-740-3363');
+insert into gas_station.user (id, ident, username, person_id, password) values (110, uuid(), 'gladyce_tillm@yahoo.com', 110, '864-596-5642');
+insert into gas_station.user (id, ident, username, person_id, password) values (111, uuid(), 'maureen1993@hotmail.com', 111, '361-348-6501');
 
 /*********************************
 
 *** ADMIN ***
-StevenVCarpenter@armyspy.com
+maureen1993@hotmail.com
 361-348-6501
 
 *** SELLER ***
-MichaelVFoley@rhyta.com
+verda1994@yahoo.com
 864-481-2631
 
 ************************************/
